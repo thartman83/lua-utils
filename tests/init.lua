@@ -1,6 +1,6 @@
 -------------------------------------------------------------------------------
 -- init.lua for lua-utils test                                               --
--- Copyright (c) 2017 Tom Hartman (thartman@hudco.com)                       --
+-- Copyright (c) 2017 Tom Hartman (thomas.lees.hartman@gmail.com)            --
 --                                                                           --
 -- This program is free software; you can redistribute it and/or             --
 -- modify it under the terms of the GNU General Public License               --
@@ -19,5 +19,8 @@
 -- }}}
 
 --- init -- {{{
-
+return { string = require("lu-string"),
+         table  = require("lu-table" ),
+}
+         
 -- }}}

@@ -1,6 +1,6 @@
 -------------------------------------------------------------------------------
--- string.lua for lua-utils                                                  --
--- Copyright (c) 2017 Tom Hartman (thartman@hudco.com)                       --
+-- table.lua for lua-utils                                                   --
+-- Copyright (c) 2017 Tom Hartman (thomas.lees.hartman@gmail.com)            --
 --                                                                           --
 -- This program is free software; you can redistribute it and/or             --
 -- modify it under the terms of the GNU General Public License               --
@@ -15,44 +15,49 @@
 -------------------------------------------------------------------------------
 
 --- Commentary -- {{{
--- A library of common string functions for lua
+-- A library of common table functions for lua
 -- }}}
 
---- string -- {{{
+local rtable = table
 
---- lines -- {{{
+--- table -- {{{
+
+--- remove_blanks -- {{{
 ----------------------------------------------------------------------
--- Splits a string into a table of strings using newline and carriage
--- return as a delimiter, returns a table of strings
--- @param string to split into lines
+-- Returns a new table with all nil or blank ("") values removed
+-- @param tbl table to remove blank values from
 ----------------------------------------------------------------------
-function lines (str)
-   local t = {}
-   local function helper(line) table.insert(t, line) return "" end
-   helper((str:gsub("(.-)\r?\n", helper)))
-   return t
+function remove_blanks (tbl)
+   local retval = {}
+   for k, v  in pairs(tbl) do
+      if v ~= "" and v ~= nil then
+         if type(k) == "number" then
+            rtable.insert(retval, v)
+         else
+            retval[k] = v
+         end
+      end
+   end
+   return retval
 end
 -- }}}
 
---- split -- {{{
+--- map -- {{{
 ----------------------------------------------------------------------
--- Splits a string into a table of strings based on a given delimiter
--- @param str string to split
--- @param delim delimiter to use to split the string
--- @param noblanks if TRUE removes blanks from the resulting table
+-- Applies a function to all elements of a table
+-- @param tbl a table
+-- @param func a function
 ----------------------------------------------------------------------
-local function split(str, delim, noblanks)   
-   if str == nil then return {} end
-
-   local t = {}
-   local function helper(part)
-      if not noblanks or (part ~= nil and part ~= "") then
-         table.insert(t, part)
+function map (tbl, func)
+   local retval = {}
+   for k,v in pairs(arr) do
+      if type(k) == "number" then
+         rtable.insert(retval,k)
+      else
+         retval[k] = v
       end
-      return ""
-   end   
-   helper((str:gsub("(.-)" .. delim, helper)))
-   return t
+   end
+   return retval
 end
 -- }}}
 

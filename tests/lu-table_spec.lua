@@ -1,6 +1,6 @@
 -------------------------------------------------------------------------------
--- stringUnit.lua for lua-utils tests                                        --
--- Copyright (c) 2017 Tom Hartman (thartman@hudco.com)                       --
+-- lu-table_spec.lua for lua-utils                                           --
+-- Copyright (c) 2017 Tom Hartman (thomas.lees.hartman@gmail.com)            --
 --                                                                           --
 -- This program is free software; you can redistribute it and/or             --
 -- modify it under the terms of the GNU General Public License               --
@@ -15,44 +15,24 @@
 -------------------------------------------------------------------------------
 
 --- Commentary -- {{{
--- Unit tests for the strings library in lua-utils
+-- Unit tests for lu-table functions
 -- }}}
 
-local rtable = table
+--- lu-table_spec -- {{{
 
---- stringUnit -- {{{
+local lu_table = require('lu-table')
+local rtable   = table
 
-describe("lua-utils.string tests", function ()
-  describe("lua-utils.string.lines tests", function ()
+describe("lua-utils.table tests", function ()
+  describe("remove_blanks tests", function ()
+    it("should not change a table with no blanks", function ()
+      
 
-
-    it("should split `foo\nbar\nbaz' into {`foo',`bar',`baz'", function ()
-      local str = "foo\nbar\nbaz"
-      local t = lines(str)
-
-      assert.are.same(rtable.getn(t),3)
-      assert.are.same(t[1], "foo")
-      assert.are.same(t[2], "bar")
-      assert.are.same(t[3], "baz")
     end)
-
-    it("should return {} if str is `'", function ()
-      local t = lines("")
-      assert.are.same(rtable.getn(t),0)
-    end)
-
-    it("should return {`foo'} if str is `foo'", function ()
-      local t = lines("foo")
-      assert.are.same(rtable.getn(t),1)
-      assert.are.same(t[1], "foo")
-    end)
-    
   end)
 
-  
-  describe("lua-utils.string.split tests", function ()
-    local str = "foo,bar,baz"
-              
+  describe("map tests", function ()
+    
   end)
 end)
 

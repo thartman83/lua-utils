@@ -28,10 +28,12 @@ return {
    },
    stringUnit = {
       ROOT = {"tests/"},
+      pattern = "Unit",
       verbose = true
    },
    tableUnit = {
-      ROOT = {"table/"},
+      ROOT = {"tests/"},
+      pattern = "Unit",
       verbose = true
    }
 }
