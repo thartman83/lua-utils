@@ -26,16 +26,11 @@ return {
    default = {
       verbose = true
    },
-   stringUnit = {
+   unit = {
       ROOT = {"tests/"},
-      pattern = "Unit",
+      pattern = "spec",
       verbose = true
    },
-   tableUnit = {
-      ROOT = {"tests/"},
-      pattern = "Unit",
-      verbose = true
-   }
 }
    
 -- }}}

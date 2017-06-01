@@ -50,15 +50,19 @@ end
 ----------------------------------------------------------------------
 function map (tbl, func)
    local retval = {}
-   for k,v in pairs(arr) do
+   for k,v in pairs(tbl) do
       if type(k) == "number" then
-         rtable.insert(retval,k)
+         rtable.insert(retval, func(v))
       else
-         retval[k] = v
+         retval[k] = func(v)
       end
    end
    return retval
 end
 -- }}}
+
+return { remove_blanks = remove_blanks,
+         map           = map          ,
+}
 
 -- }}}

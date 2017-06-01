@@ -26,13 +26,50 @@ local rtable   = table
 describe("lua-utils.table tests", function ()
   describe("remove_blanks tests", function ()
     it("should not change a table with no blanks", function ()
-      
+      local t  = {"foo", "bar", true }
+      local t2 = lu_table.remove_blanks(t)
 
+      assert.are.same(3, rtable.getn(t2))
+      
+      assert.are.same("foo", t2[1])
+      assert.are.same("bar", t2[2])
+      assert.are.same(true,  t2[3])      
+    end)
+
+    it("should remove the middle empty string", function ()
+      local t  = {"foo","","bar"}
+      local t2 = lu_table.remove_blanks(t)
+
+      assert.are.same(2, rtable.getn(t2))
+      assert.are.same("foo", t2[1])
+      assert.are.same("bar", t2[2])
+    end)
+
+    it("should remove nil elements", function ()
+      local t  = {nil, "foo", nil}
+      local t2 = lu_table.remove_blanks(t)
+
+      assert.are.same(1, rtable.getn(t2))
+      assert.are.same("foo", t2[1])
+    end)
+
+    it("should remove all elements", function ()
+      local t  = {nil, "", nil, ""}
+      local t2 = lu_table.remove_blanks(t)
+
+      assert.are.same(0, rtable.getn(t2))      
     end)
   end)
 
   describe("map tests", function ()
-    
+    it("should add 2 to every element of 1 through 10", function ()
+      local t  = {1,2,3,4,5,6,7,8,9,10}
+      local t2 = map(t, function (x) return x + 2 end)
+
+      for x=1,10 do
+         assert.are.same(x+2, t2[x])
+      end
+    end)                
   end)
 end)
 
