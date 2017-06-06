@@ -51,10 +51,11 @@ end
 function map (tbl, func)
    local retval = {}
    for k,v in pairs(tbl) do
+      local newval = func(v)
       if type(k) == "number" then
-         rtable.insert(retval, func(v))
+         rtable.insert(retval, newval)
       else
-         retval[k] = func(v)
+         retval[k] = newval
       end
    end
    return retval
