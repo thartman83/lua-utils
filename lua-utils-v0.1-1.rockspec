@@ -3,7 +3,7 @@ version = "v0.1-1"
 
 source  = {
    url = "git://github.com/thartman83/lua-utils",
-   tag = "v0.1",
+   tag = "v0.1-1",
 }
 
 description = {
