@@ -1,5 +1,5 @@
 package = "lua-utils"
-version = "v0.1-0"
+version = "v0.1-1"
 
 source  = {
    url = "git://github.com/thartman83/lua-utils",
