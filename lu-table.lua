@@ -62,8 +62,34 @@ function map (tbl, func)
 end
 -- }}}
 
+--- first -- {{{
+----------------------------------------------------------------------
+-- Return the first element of the table
+-- @param tbl table to take the first element from
+----------------------------------------------------------------------
+function first (tbl)
+   return tbl[1]
+end
+-- }}}
+
+--- rest -- {{{
+----------------------------------------------------------------------
+-- Return all the elements of the table except for the first.
+-- @param tbl table to take all but the first element from
+----------------------------------------------------------------------
+function rest (tbl)
+   local t = tbl
+   table.remove(t,1)
+   return t
+end
+-- }}}
+
 return { remove_blanks = remove_blanks,
          map           = map          ,
+         first         = first        ,
+         car           = first        ,
+         rest          = rest         ,
+         cdr           = rest         ,
 }
 
 -- }}}

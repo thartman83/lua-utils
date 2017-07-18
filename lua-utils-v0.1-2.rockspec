@@ -1,9 +1,9 @@
 package = "lua-utils"
-version = "v0.1-1"
+version = "v0.1-2"
 
 source  = {
    url = "git://github.com/thartman83/lua-utils",
-   tag = "v0.1-1",
+   tag = "v0.1-2",
 }
 
 description = {
